@@ -48,7 +48,7 @@ This is a custom hook that provides an easy and intuitive way to access our app'
 3. Run the server using `json-server --watch db.json --port 4000`.
 4. Run the application using `npm run dev`.
 
-Once the application is running, you'll be able to see a list of plugins categorized under various tabs. Each plugin can be toggled on/off, and there's an option to disable all plugins at once.
+Once the application is running, you'll be able to see a list of plugins categorized under various tabs. Each plugin can be toggled on/off, and there's an option to disable/enable all plugins at once.
 
 ## Conclusion
 
