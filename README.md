@@ -23,7 +23,7 @@ This task is designed as a React-based Plugin Management System that fetches, fo
   
 - **Utility Functions**: Custom utility functions like `generateSlug` and `cleanAndLowercaseString` are used for specific data processing and formatting tasks.
 
-## Components and Logic
+## Logic
 
 ### AppDataProvider
 
@@ -36,8 +36,6 @@ This is the heart of our application. It fetches, processes, and provides the pl
 2. **Toggle Plugin Status**: The `togglePluginStatus` function allows you to change the status of individual plugins. It ensures the data remains consistent across tabs and updates the backend with the new status.
 
 3. **Toggle All Plugins**: Using the `toggleEnableDisableAllPlugins` function, you can disable or enable all plugins. This function checks the current status of plugins and updates accordingly.
-
-4. **Loading State Management**: A loading state (`loading`) indicates whether the data is still being fetched. This can be used in the UI to show loaders or placeholders.
 
 ### useAppDataContext
 
