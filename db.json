@@ -11,13 +11,20 @@
         "icon": "icon-marketing",
         "active": [
           "plugin6",
-          "plugin1",
-          "plugin2"
+          "plugin2",
+          "plugin1"
         ],
-        "disabled": [],
-        "inactive": [
-          "plugin4",
+        "disabled": [
+          "plugin6",
+          "plugin2",
+          "plugin1",
           "plugin3",
+          "plugin4",
+          "plugin5"
+        ],
+        "inactive": [
+          "plugin3",
+          "plugin4",
           "plugin5"
         ]
       },
@@ -26,12 +33,17 @@
         "icon": "icon-finance",
         "active": [
           "plugin8",
-          "plugin9"
-        ],
-        "disabled": [],
-        "inactive": [
-          "plugin7",
+          "plugin9",
           "plugin10"
+        ],
+        "disabled": [
+          "plugin8",
+          "plugin9",
+          "plugin10",
+          "plugin7"
+        ],
+        "inactive": [
+          "plugin7"
         ]
       },
       "tab3": {
@@ -40,7 +52,11 @@
         "active": [
           "plugin11"
         ],
-        "disabled": [],
+        "disabled": [
+          "plugin11",
+          "plugin13",
+          "plugin12"
+        ],
         "inactive": [
           "plugin13",
           "plugin12"

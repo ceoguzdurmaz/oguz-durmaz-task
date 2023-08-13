@@ -123,12 +123,14 @@ export const AppDataProvider: React.FC<{ children: ReactNode }> = ({
     const pluginKey = Object.keys(tempData.data.plugins).find(
       (key) => tempData.data.plugins[key].title === pluginTitle
     );
+
     if (!pluginKey) {
       console.error("Plugin not found");
       return;
     }
-    for (const tabKey of Object.keys(tempData.data.tabData)) {
-      const tab = tempData.data.tabData[tabKey];
+
+    const updatedTabsData = [...tabsData];
+    for (const tab of updatedTabsData) {
       if (tab.active.includes(pluginKey)) {
         const index = tab.active.indexOf(pluginKey);
         tab.active.splice(index, 1);
@@ -139,36 +141,57 @@ export const AppDataProvider: React.FC<{ children: ReactNode }> = ({
         tab.active.push(pluginKey);
       }
     }
+
+    const updatedPluginsData = pluginsData.map((plugin) => {
+      if (plugin.title === pluginTitle) {
+        return { ...plugin, status: !plugin.status };
+      }
+      return plugin;
+    });
+
     try {
       const data = { ...tempData.data };
       await axios.post(`${API_URL}`, data);
-      fetchData().then(() => {
-        console.log("Plugin status toggled successfully");
-      });
+      setTabsData(updatedTabsData);
+      setPluginsData(updatedPluginsData);
     } catch (error) {
       console.error("Error toggling plugin status:", error);
+      // Here you can either revert the changes or notify the user
     }
   };
 
   // Function to toggle the disabled/enabled status of all plugins
   const toggleEnableDisableAllPlugins = async () => {
     const newData = { ...tempData.data };
-    for (const tabKey of Object.keys(newData.tabData)) {
+    const allPluginsAreDisabled = pluginsData.every(
+      (plugin) => plugin.disabled
+    );
+
+    // Toggle the disabled status in the local data
+    for (const tabKey in newData.tabData) {
       const tab = newData.tabData[tabKey];
-      const allPlugins = tab.active.concat(tab.inactive);
-      if (allPlugins.every((plugin) => tab.disabled.includes(plugin))) {
+      const allPlugins = [...tab.active, ...tab.inactive];
+      if (allPluginsAreDisabled) {
         tab.disabled = [];
       } else {
-        tab.disabled = [...allPlugins];
+        tab.disabled = allPlugins;
       }
     }
+
     try {
+      // Send the modified data to the backend
       await axios.post(`${API_URL}`, newData);
-      fetchData().then(() => {
-        console.log("Disabled/enabled plugins successfully");
+
+      // Update the local UI state
+      const updatedPluginsData = pluginsData.map((plugin) => {
+        return { ...plugin, disabled: !allPluginsAreDisabled };
       });
+      setTabsData(Object.values(newData.tabData)); // Assuming tabData is an object, not an array
+      setPluginsData(updatedPluginsData);
+      setIsAllPluginsDisabled(!allPluginsAreDisabled);
     } catch (error) {
       console.error("Error toggling disabled plugins:", error);
+      // Handle errors accordingly, e.g., show a notification to the user
     }
   };
 
