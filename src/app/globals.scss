@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//get all color codes from a different file
+.p-40 {
+  padding: 40px;
+}
+.gap-30 {
+  gap: 30px;
+}
+.page-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  min-height: 100vh;
+  .side-menu {
+    width: 20%;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .turn-on-of-plugins {
+      margin-top: auto;
+      display: flex;
+      height: 80px;
+      width: 100%;
+      background: rebeccapurple;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      background: linear-gradient(to top, rgba(91, 200, 141, 0.5), transparent);
+      color: #424242;
+      .bottom-switch {
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
+        display: flex;
+      }
+      &.danger-bg {
+        background: linear-gradient(
+          to top,
+          rgba(198, 48, 64, 0.5),
+          transparent
+        );
+      }
+    }
+
+    .logo {
+      display: flex;
+      justify-content: flex-start;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+  }
+  .main {
+    width: 80%;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  li {
+    list-style: none;
+    border-left: 5px solid transparent;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    cursor: pointer;
+    height: 60px;
+    a {
+      display: flex;
+      padding: 10px 20px;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      flex-direction: row;
+      gap: 11px;
+      color: #424242;
+    }
+    &:hover {
+      background: #fff;
+      border-left: 5px solid #c63040;
+      transition: all 0.3s ease-in-out;
+    }
+    &:active {
+      border-left: 5px solid #0b344b;
+    }
+    &.active-tab {
+      background: #fff;
+      border-left: 5px solid #c63040;
+    }
+  }
+}
+.bg-danger-support {
+  span:not(.bg-white) {
+    background: #c63040 !important;
+  }
+}
+.page-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #424242;
+  margin-bottom: 20px;
+  &:first-letter {
+    text-transform: capitalize;
+  }
+}
+.plugin-box {
+  flex: 0 0 31%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 9px;
+  border: 2px solid #dcdcdc;
+  padding: 20px;
+  position: relative;
+  min-height: 205px;
+  &:hover {
+    transition: all 0.3s ease-in-out;
+    background: #f9f9f9;
+  }
+  &.disabled-box {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  h2 {
+    color: #0b344b;
+  }
+  .text-area {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    p {
+      font-size: 16px;
+      color: #9aa7b0;
+      line-height: 1.8;
+    }
+  }
+}
+.success-color {
+  color: #5bc88d;
+}
+.error-color {
+  color: #c63040;
+}
+.plugin-switch {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    &.success-color {
+      margin-left: -4px;
+    }
+    &.error-color {
+      margin-left: -2px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .page-layout {
+    flex-direction: column;
+    padding-bottom: 80px;
+    .side-menu {
+      width: 100%;
+      .turn-on-of-plugins {
+        position: fixed;
+        bottom: 0;
+        z-index: 999;
+        background: linear-gradient(to top, rgba(91, 200, 141, 0.5), white);
+      }
+    }
+    .main {
+      width: 100%;
+    }
+  }
+  .plugin-box {
+    flex: 0 0 100%;
+  }
+  .menu {
+    flex-direction: row;
+    overflow-x: scroll;
+
+    li {
+      height: 100%;
+      display: inline-block;
+
+      a {
+        padding: 10px 20px;
+        width: 60vw;
+        height: 100%;
+        align-items: center;
+        flex-direction: row;
+        gap: 11px;
+        color: #424242;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+      background-color: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #0b344b;
+      border: 2px solid transparent;
+
+      &:hover {
+        background-color: #909090;
+      }
+    }
+  }
+}
