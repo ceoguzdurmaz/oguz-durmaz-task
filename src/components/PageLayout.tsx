@@ -16,14 +16,14 @@ const PageLayout: React.FunctionComponent<PageLayoutProps> = ({
 }) => {
   const {
     tabsData,
-    toggleDisabledPlugins,
+    toggleEnableDisableAllPlugins,
     isAllPluginsDisabled,
     setIsAllPluginsDisabled,
     loading,
   } = useAppDataContext();
 
   const handleSwitch = () => {
-    toggleDisabledPlugins().then(() => {
+    toggleEnableDisableAllPlugins().then(() => {
       setIsAllPluginsDisabled(!isAllPluginsDisabled);
     });
   };

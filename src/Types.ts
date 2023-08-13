@@ -36,7 +36,7 @@ export interface AppDataProps {
   pluginsData: PluginInfo[];
   defaultTab: string;
   togglePluginStatus: (pluginTitle: string) => Promise<void>;
-  toggleDisabledPlugins: () => Promise<void>;
+  toggleEnableDisableAllPlugins: () => Promise<void>;
   loading: boolean;
   isAllPluginsDisabled: boolean;
   setIsAllPluginsDisabled: Dispatch<SetStateAction<boolean>>;

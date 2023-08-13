@@ -29,7 +29,7 @@ const defaultAppData: AppDataProps = {
   pluginsData: [],
   defaultTab: "",
   togglePluginStatus: async (pluginTitle: string) => {},
-  toggleDisabledPlugins: async () => {},
+  toggleEnableDisableAllPlugins: async () => {},
   loading: false,
   isAllPluginsDisabled: false,
   setIsAllPluginsDisabled: () => {},
@@ -150,8 +150,8 @@ export const AppDataProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
-  // Function to toggle the disabled status of all plugins
-  const toggleDisabledPlugins = async () => {
+  // Function to toggle the disabled/enabled status of all plugins
+  const toggleEnableDisableAllPlugins = async () => {
     const newData = { ...tempData.data };
     for (const tabKey of Object.keys(newData.tabData)) {
       const tab = newData.tabData[tabKey];
@@ -172,8 +172,6 @@ export const AppDataProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
-  // Function to check if all plugins are disabled
-
   // Fetch the data when the component mounts
   useEffect(() => {
     fetchData().then(() => {
@@ -188,7 +186,7 @@ export const AppDataProvider: React.FC<{ children: ReactNode }> = ({
         defaultTab,
         pluginsData,
         togglePluginStatus,
-        toggleDisabledPlugins,
+        toggleEnableDisableAllPlugins,
         loading,
         isAllPluginsDisabled,
         setIsAllPluginsDisabled,
