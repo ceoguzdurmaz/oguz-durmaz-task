@@ -31,8 +31,6 @@ const BoxComponent: React.FC<BoxProps> = ({ plugin }) => {
           setIsSwitchOn={handleSwitch}
         />
       </div>
-      {/* <p>Status: {plugin.status ? "active" : "inactive"}</p>
-      <p>Disabled: {plugin.disabled ? "disabled" : "not disabled"}</p>*/}
     </div>
   );
 };
