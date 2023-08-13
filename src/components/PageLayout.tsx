@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode } from "react";
 import { useAppDataContext } from "@/context/store";
 import Image from "next/image";

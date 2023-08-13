@@ -10,22 +10,15 @@
         "title": "Marketing",
         "icon": "icon-marketing",
         "active": [
+          "plugin5",
           "plugin6",
-          "plugin2",
+          "plugin3",
           "plugin1"
         ],
-        "disabled": [
-          "plugin6",
-          "plugin2",
-          "plugin1",
-          "plugin3",
-          "plugin4",
-          "plugin5"
-        ],
+        "disabled": [],
         "inactive": [
-          "plugin3",
-          "plugin4",
-          "plugin5"
+          "plugin2",
+          "plugin4"
         ]
       },
       "tab2": {
@@ -36,12 +29,7 @@
           "plugin9",
           "plugin10"
         ],
-        "disabled": [
-          "plugin8",
-          "plugin9",
-          "plugin10",
-          "plugin7"
-        ],
+        "disabled": [],
         "inactive": [
           "plugin7"
         ]
@@ -50,16 +38,12 @@
         "title": "Personnel",
         "icon": "icon-people",
         "active": [
-          "plugin11"
-        ],
-        "disabled": [
-          "plugin11",
-          "plugin13",
           "plugin12"
         ],
+        "disabled": [],
         "inactive": [
           "plugin13",
-          "plugin12"
+          "plugin11"
         ]
       }
     },
